@@ -17,7 +17,7 @@ public class CampaingController {
     @Autowired
     private CampaingService campaignService;
 
-    @GetMapping
+    @GetMapping("/all")
     public String getAllCampaigns(Model model) {
         List<Campaign> campaigns = campaignService.getAllCampaigns();
         model.addAttribute("campaigns", campaigns);

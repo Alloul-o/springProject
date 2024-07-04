@@ -3,6 +3,7 @@ package com.example.donationproject.controllers;
 import com.example.donationproject.entities.Campaign;
 import com.example.donationproject.service.CampaingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.example.donationproject.service.UserService;
 import org.springframework.ui.Model;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("campaings")
 public class CampaingController {
 
@@ -40,7 +41,7 @@ public class CampaingController {
     @PostMapping
     public String createCampaign(@ModelAttribute Campaign campaign) {
         campaignService.saveCampaign(campaign);
-        return "redirect:/campaigns";
+        return "redirect:/all";
     }
 
     @DeleteMapping("/{id}")

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Campaign</title>
+</head>
+<body>
+<h1 th:text="${campaign.title}"></h1>
+<p th:text="${campaign.description}"></p>
+<p>Target Amount: <span th:text="${campaign.targetAmount}"></span></p>
+<h2>Donations</h2>
+<div th:each="donation : ${campaign.donations}">
+    <p><strong th:text="${donation.donorName}"></strong> donated <span th:text="${donation.amount}"></span></p>
+</div>
+<h2>Donate</h2>
+<form th:action="@{/donate}" method="post">
+    <input type="hidden" name="campaignId" th:value="${campaign.id}">
+    <div>
+        <label>Donor Name</label>
+        <input type="text" name="donorName">
+    </div>
+    <div>
+        <label>Amount</label>
+        <input type="number" name="amount">
+    </div>
+    <button type="submit">Donate</button>
+</form>
+</body>
+</html>

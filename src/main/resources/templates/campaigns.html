@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Campaigns</title>
+</head>
+<body>
+<h1>Campaigns</h1>
+<a href="/campaigns/new">Create New Campaign</a>
+<ul>
+    <li th:each="campaign : ${campaigns}">
+        <a th:href="@{/campaigns/{id}(id=${campaign.id})}" th:text="${campaign.name}">Campaign Name</a>
+    </li>
+</ul>
+</body>
+</html>

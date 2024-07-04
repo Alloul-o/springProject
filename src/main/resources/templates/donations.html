@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Donations</title>
+</head>
+<body>
+<h1>Donations</h1>
+<a href="/donations/new">Create New Donation</a>
+<ul>
+    <li th:each="donation : ${donations}">
+        <span th:text="${donation.donorName}">Donor Name</span> donated <span th:text="${donation.amount}">Amount</span> to campaign ID <span th:text="${donation.campaignId}">Campaign ID</span>
+    </li>
+</ul>
+</body>
+</html>

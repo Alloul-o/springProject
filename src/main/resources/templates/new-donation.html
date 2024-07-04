@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Donation</title>
+</head>
+<body>
+<h1>Create New Donation</h1>
+<form th:action="@{/donations}" th:object="${donation}" method="post">
+    <div>
+        <label for="campaignId">Campaign ID:</label>
+        <input type="text" id="campaignId" th:field="*{campaignId}" />
+    </div>
+    <div>
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" th:field="*{amount}" />
+    </div>
+    <div>
+        <label for="donorName">Donor Name:</label>
+        <input type="text" id="donorName" th:field="*{donorName}" />
+    </div>
+    <div>
+        <button type="submit">Create</button>
+    </div>
+</form>
+</body>
+</html>

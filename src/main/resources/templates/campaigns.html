@@ -6,9 +6,10 @@
 <body>
 <h1>Campaigns</h1>
 <a href="/campaigns/new">Create New Campaign</a>
+<a href="/donations/new">Create New Donations</a>
 <ul>
     <li th:each="campaign : ${campaigns}">
-        <a th:href="@{/campaigns/{id}(id=${campaign.id})}" th:text="${campaign.name}">Campaign Name</a>
+        <a th:href="@{/campaigns/{id}(id=${campaign.id})}" th:text="${campaign.title}">Campaign Name</a>
     </li>
 </ul>
 </body>

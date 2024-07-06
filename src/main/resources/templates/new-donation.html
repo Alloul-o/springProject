@@ -7,9 +7,13 @@
 <h1>Create New Donation</h1>
 <form th:action="@{/donations}" th:object="${donation}" method="post">
     <div>
-        <label for="campaignId">Campaign ID:</label>
-        <input type="text" id="campaignId" th:field="*{campaignId}" />
+        <label for="campaign">Campaign ID:</label>
+        <select id="campaign" th:field="*{campaign.title}">
+            <option value="">Select a campaign</option>
+            <option th:each="campaign : ${campaigns}" th:value="${campaign}" th:text="${campaign.title}"></option>
+        </select>
     </div>
+
     <div>
         <label for="amount">Amount:</label>
         <input type="text" id="amount" th:field="*{amount}" />

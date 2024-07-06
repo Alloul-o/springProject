@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("campaings")
+@RequestMapping("campaigns")
 public class CampaingController {
 
     @Autowired
     private CampaingService campaignService;
 
-    @GetMapping("/all")
+    @GetMapping
     public String getAllCampaigns(Model model) {
         List<Campaign> campaigns = campaignService.getAllCampaigns();
         model.addAttribute("campaigns", campaigns);
@@ -41,7 +41,7 @@ public class CampaingController {
     @PostMapping
     public String createCampaign(@ModelAttribute Campaign campaign) {
         campaignService.saveCampaign(campaign);
-        return "redirect:/all";
+        return "redirect:/campaigns";
     }
 
     @DeleteMapping("/{id}")

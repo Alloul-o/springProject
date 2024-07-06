@@ -30,6 +30,8 @@ public class DonationController {
 //    }
 @Autowired
 private DonationService donationService;
+    @Autowired
+    private CampaingService campaignService;
 
     @GetMapping
     public String getAllDonations(Model model) {
@@ -48,6 +50,7 @@ private DonationService donationService;
     @GetMapping("/new")
     public String createDonationForm(Model model) {
         model.addAttribute("donation", new Donation());
+        model.addAttribute("campaigns",campaignService.getAllCampaigns());
         return "new-donation";
     }
 
